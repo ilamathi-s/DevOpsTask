@@ -1,0 +1,62 @@
+[
+  {
+    "categoryId": 1,
+    "categoryName": "Electronics",
+    "categoryDes": "Smartphones, laptops, gadgets and accessories",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 2,
+    "categoryName": "Clothing",
+    "categoryDes": "Men’s, women’s and kids’ fashion and apparel",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 3,
+    "categoryName": "Home Appliances",
+    "categoryDes": "Essential appliances for your home and kitchen",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 4,
+    "categoryName": "Beauty & Personal Care",
+    "categoryDes": "Cosmetics, skincare, grooming and wellness products",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 5,
+    "categoryName": "Books",
+    "categoryDes": "Fiction, non-fiction, educational and children’s books",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 6,
+    "categoryName": "Sports & Fitness",
+    "categoryDes": "Fitness equipment, sportswear and accessories",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 7,
+    "categoryName": "Furniture",
+    "categoryDes": "Modern and classic furniture for home and office",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 8,
+    "categoryName": "Groceries",
+    "categoryDes": "Daily essentials, packaged food and beverages",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 9,
+    "categoryName": "Toys & Games",
+    "categoryDes": "Toys, puzzles, and games for all age groups",
+    "uploadedDate": "2025-10-30"
+  },
+  {
+    "categoryId": 10,
+    "categoryName": "Automotive",
+    "categoryDes": "Car and bike accessories, parts and tools",
+    "uploadedDate": "2025-10-30"
+  }
+]
