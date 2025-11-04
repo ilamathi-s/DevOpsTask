@@ -49,25 +49,69 @@ export const indexingProduct = async () => {
   });
   });
 };
+// export const searchProducts = async (req, res) => {
+//   const query = req.query.q || '';
+//   try {
+//     const searchResult = await client.search({
+//       index: 'products',
+//       body: {
+//         query: {
+//           multi_match: {
+//             query,
+//             fields: ['productName^3', 'productDes'], 
+//             fuzziness: 'AUTO'
+//           }
+//         }
+//       }
+//     });
+//      const products = searchResult.hits.hits.map(hit => hit._source);
+//     res.json({ query, results: products });
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// };
+
 export const searchProducts = async (req, res) => {
-  const query = req.query.q || '';
+  const { q = '', category, maxPrice } = req.query;
+
+  const mustQueries = [];
+  const filterQueries = [];
+  if (q) {
+    mustQueries.push({
+      multi_match: {
+        query: q,
+        fields: ['productName^3', 'productDes'],
+        fuzziness: 'AUTO'
+      }
+    });
+  }
+  if (category) {
+    filterQueries.push({
+      term: { categoryId: category }
+    });
+  }
+  if (maxPrice) {
+    filterQueries.push({
+      range: { MRP: { lte: Number(maxPrice) } }
+    });
+  }
+
   try {
     const searchResult = await client.search({
       index: 'products',
       body: {
         query: {
-          multi_match: {
-            query,
-            fields: ['productName^3', 'productDes'], 
-            fuzziness: 'AUTO'
+          bool: {
+            must: mustQueries,
+            filter: filterQueries
           }
         }
       }
     });
-     const products = searchResult.hits.hits.map(hit => hit._source);
-    res.json({ query, results: products });
+
+    const products = searchResult.hits.hits.map(hit => hit._source);
+    res.json({ query: q, filters: { category, maxPrice }, results: products });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
-
